@@ -14,7 +14,7 @@ PORTO_ALEGRE_BOUNDS = {
     "lon_min": -51.30,
     "lon_max": -51.05
 }
-SPEED_DEG_PER_SEC = 0.0001  # Roughly 10 meters per second (approx)
+SPEED_DEG_PER_SEC = 0.001  # Roughly 10 meters per second (approx)
 UPDATE_INTERVAL = 0.1  # Seconds
 
 # --- Models ---
@@ -110,6 +110,16 @@ def simulation_loop():
 
 # --- API ---
 app = FastAPI()
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 def start_simulation():
