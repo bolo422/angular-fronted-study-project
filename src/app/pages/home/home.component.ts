@@ -13,15 +13,8 @@ import * as L from 'leaflet';
 })
 export class HomeComponent implements AfterViewInit {
   private map: L.Map | undefined;
-  private router = inject(Router);
-  private authService = inject(AuthService);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

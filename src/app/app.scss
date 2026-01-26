@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+
+  &.with-sidebar {
+    .content-area {
+      margin-left: 250px;
+    }
+  }
+
+  .content-area {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+  }
+}

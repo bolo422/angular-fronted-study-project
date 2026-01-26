@@ -1,4 +1,6 @@
-
-
-
-<router-outlet />
+<div class="app-container" [class.with-sidebar]="isUserAuthenticated">
+  <app-sidebar *ngIf="isUserAuthenticated"></app-sidebar>
+  <main class="content-area">
+    <router-outlet />
+  </main>
+</div>
